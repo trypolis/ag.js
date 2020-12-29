@@ -10,6 +10,10 @@
 
 let speechInitialized = false;
 
+/*
+ * Speech class.
+ * Text to speech functions.
+ */
 class Speech {
   constructor() {
     // We want the ARIA text going to a <div>
