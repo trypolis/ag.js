@@ -31,9 +31,3 @@ class Speech {
 }
 
 let speech = new Speech();
-
-function dlg(text) {
-  // Wraps the alert() function with TTS.
-  speech.speak(text);
-  alert(text);
-}
