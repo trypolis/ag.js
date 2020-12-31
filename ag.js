@@ -8,8 +8,6 @@
 
 "use strict";
 
-let speechInitialized = false;
-
 /*
  * Speech class.
  * Text to speech functions.
@@ -30,4 +28,12 @@ class Speech {
     para.appendChild(document.createTextNode(text));
     this.aria.appendChild(para);
   }
+}
+
+let speech = new Speech();
+
+function dlg(text) {
+  // Wraps the alert() function with TTS.
+  speech.speak(text);
+  alert(text);
 }
