@@ -31,3 +31,55 @@ class Speech {
 }
 
 let speech = new Speech();
+
+/*
+ * Timer class.
+ * Similar to BGT's timer object.
+ */
+class Timer {
+  constructor() {
+    this.elapsed; // The time (in MS) the timer has been running for.
+    this.paused = false;
+    this.lastTime = 0;
+    this.pauseWhen = 0;
+    this.started = true;
+  }
+
+  isActive() {
+    // Determines if the timer is currently active (unpaused and started). If both of these are true, it returns true. Else, it returns false.
+    return !paused & started;
+  }
+
+  // Something similar to Python properties.
+  get elapsed() {
+    if (this.paused) {
+      return this.pauseWhen - this.lastTime;
+    }
+    return performance.now() - this.lastTime;
+  }
+
+  pause() {
+    this.paused = true;
+    this.pauseWhen = performance.now();
+  }
+
+  reset() {
+    this.lastTime = performance.now();
+    this.pauseWhen = 0;
+    this.paused = false;
+    this.started = true;
+  }
+
+  restart() {
+    this.lastTime = performance.now();
+    this.pauseWhen = 0;
+    this.paused = false;
+    this.started = true;
+  }
+
+  resume() {
+    this.paused = false;
+    this.started = true;
+    this.lastTime += performance.now() - this.pauseWhen;
+  }
+}
